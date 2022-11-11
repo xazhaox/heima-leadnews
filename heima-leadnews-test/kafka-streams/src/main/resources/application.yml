@@ -1,0 +1,7 @@
+server:
+  port: 9991
+spring:
+  application:
+    name: kafka-test
+  kafka:
+    bootstrap-servers: 192.168.200.130:9092

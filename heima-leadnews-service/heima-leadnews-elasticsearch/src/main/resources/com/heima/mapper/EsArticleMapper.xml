@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.heima.mapper.EsArticleMapper">
+
+    <resultMap id="resultMap" type="com.heima.model.dataimport.pojos.EsArticle">
+        <result column="id" property="id"/>
+        <result column="publish_time" property="publishTime"/>
+        <result column="layout" property="layout"/>
+        <result column="static_url" property="staticUrl"/>
+        <result column="author_id" property="authorId"/>
+        <result column="author_name" property="authorName"/>
+        <result column="title" property="title"/>
+        <result column="content" property="content"/>
+    </resultMap>
+
+    <select id="uploadArticleInformation" resultMap="resultMap">
+        select
+            article.id, article.publish_time, article.layout, article.images,
+               article.static_url, article.author_id,article.author_name,
+               article.title, content.content
+        from
+            ap_article as article, ap_article_content as content, ap_article_config as config
+        <where>
+          and article.id = content.article_id
+          and article.id = config.article_id
+          and config.is_down = 0
+          and config.is_delete = 0;
+        </where>
+    </select>
+</mapper>

@@ -1,0 +1,27 @@
+server:
+  port: 9988
+spring:
+  elasticsearch:
+    rest:
+      uris:
+        - http://192.168.200.130:9200
+  application:
+    name: data_import
+
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.200.130:8848
+      config:
+        server-addr: 192.168.200.130:8848
+        file-extension: yaml
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/leadnews_article?serverTimezone=Asia/Shanghai&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: xaroot
+
+  autoconfigure:
+    exclude:
+      - com.heima.common.aliyun.GreenTextScan
+      - com.heima.common.aliyun.GreenImageScan

@@ -1,0 +1,15 @@
+server:
+  port: 51807
+spring:
+  application:
+    name: leadnews-task
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.200.130:8848
+      config:
+        server-addr: 192.168.200.130:8848
+        file-extension: yml
+  # 排除自动装配
+  autoconfigure:
+    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration

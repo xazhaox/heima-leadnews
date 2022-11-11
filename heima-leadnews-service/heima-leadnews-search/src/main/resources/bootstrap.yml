@@ -1,0 +1,27 @@
+server:
+  port: 51804
+spring:
+  application:
+    name: leadnews-search
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.200.130:8848
+      config:
+        server-addr: 192.168.200.130:8848
+        file-extension: yaml
+  kafka:
+    consumer:
+      properties:
+        max.poll.interval.ms: 86400000
+  profiles:
+    active: dev
+  # 排除自动装配
+#  autoconfigure:
+#    exclude: org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+
+#  autoconfigure:
+#    exclude:
+#      - org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration
+#      - com.heima.common.aliyun.GreenImageScan
+#      - com.heima.common.aliyun.GreenTextScan
